@@ -1,0 +1,26 @@
+export const GET_GAMES = 'GET_GAMES';
+export const GET_GENRES = "GET_GENRES";
+export const FILTER_CREATED = "ORDER_GAME_BY_CREATED";
+export const ORDER_BY_NAME = "ORDER_BY_ASorDESC";
+export const ORDER_BY_GENRES ="ORDER_BY_GENRES";
+export const ORDER_BY_RATING = "ORDER_BY_RATING"
+export const GET_BY_NAME = "GET_BY_NAME";
+export const GET_BY_ID = "GET_BY_ID";
+export const POST_VIDEO_GAME = "POST_VIDEO_GAME"; 
+export const ADD_VIDEO_GAME = "ADD_VIDEO_GAME";
+export const GET_PLATFORMS = "GET_PLATFORMS";
+export const DELETE_GAME = "DELETE_GAME";
+export const CLEAN_DETAIL = "CLEAN_DETAIL";
+
+// export const GET_GAME_BY_ID = 'GET_GAME_BY_ID';
+// export const ADD_GAME = "ADD_GAME";
+// export const GET_GAME_BY_NAME = "GET_GAME_BY_NAME";
+// export const ORDER_GAME_BY_ABC = "ORDER_GAME_BY_ABC";
+// export const ACTUALIZAR_ESTADO_GAMES = "ACTUALIZAR_ESTADO_GAMES";
+// export const ORDER_GAME_BY_CREATED = "ORDER_GAME_BY_CREATED";
+// export const ORDER_GAME_BY_RATING = "ORDER_GAME_BY_RATING";
+// export const ORDER_GAME_BY_GENRE = "ORDER_GAME_BY_GENRE"
+// export const CLEAN_DETAIL = "CLEAN_DETAIL";
+// export const DELETE_GAME = "DELETE_GAME";
+// export const STANDBY_LOAD = "STANDBY_LOAD";
+// export const LOAD_DONE = "LOAD_DONE";

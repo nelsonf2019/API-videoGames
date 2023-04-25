@@ -1,0 +1,190 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .bienvenida {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 10px #C5FCEE;
+    border-radius: 10px;
+  }
+  
+  .imagenBienvenida {
+    flex: 1;
+    max-width: 40%;
+    text-align: center;
+  }
+  
+  .imagenBienvenida img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid #C5FCEE;
+  }
+  
+  .titulos {
+    flex: 1;
+    max-width: 50%;
+    text-align: center;
+    margin-left: 20px;
+  }
+  
+  .title {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 10px 10px 10px 10px;
+    color: #00C9A3;
+  }
+  
+  .subtitle {
+    font-size: 24px;
+    color: #abd4cb;
+    margin: 10px 10px 10px 10px;
+  }
+  
+  .actions {
+    text-align: center;
+    margin-bottom: 24x;
+  }
+  
+  .button {
+    padding: 0.1em 0.25em;
+    width: 13em;
+    height: 4.2em;
+    background-color: #212121;
+    border: 0.08em solid #C5FCEE;
+    border-radius: 0.3em;
+    font-size: 12px;
+  }
+  
+  .button span {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0.4em;
+    width: 8.25em;
+    height: 2.5em;
+    background-color: #212121;
+    border-radius: 0.2em;
+    font-size: 1.5em;
+    color: #C5FCEE;
+    border: 0.08em solid #C5FCEE;
+    box-shadow: 0 0.4em 0.1em 0.019em #C5FCEE;
+  }
+  
+  .button span:hover {
+    transition: all 0.5s;
+    transform: translate(0, 0.4em);
+    box-shadow: 0 0 0 0 #C5FCEE;
+    cursor: pointer;
+  }
+  
+  .button span:not(hover) {
+    transition: all 1s;
+  }
+  
+  .details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+  
+  .detail {
+    flex-basis: calc(33.33% - 20px);
+    margin-bottom: 20px;
+    text-align: center;
+    border: 1px solid #C5FCEE;
+    box-shadow: 0 0 10px #C5FCEE;
+    border-radius: 10px;
+  }
+  
+  .detail p {
+    color: #C5FCEE;
+    margin-bottom: 15px;
+    margin-top: 0;
+    margin: 0 5px 15px 5px;
+  }
+  
+  .detailImage {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5%;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #C5FCEE;
+  }
+  
+  /* Estilos para pantallas pequeñas */
+  @media only screen and (max-width: 767px) {
+    .bienvenida {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .imagenBienvenida {
+      max-width: 90%;
+    }
+  
+    .titulos {
+      max-width: 100%;
+      margin-left: 0;
+      margin-top: 20px;
+    }
+  
+    .button {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+  
+    .details {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .detail {
+      flex-basis: calc(50% - 20px);
+    }
+  }
+  
+  /* Estilos para pantallas medianas */
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .detail {
+      flex-basis: calc(50% - 20px);
+    }
+  }
+  
+  /* Estilos para pantallas grandes */
+  @media only screen and (min-width: 992px) {
+    .container {
+      padding: 0 50px;
+    }
+  
+    .bienvenida {
+      margin-top: 50px;
+      margin-bottom: 60px;
+    }
+  
+    .detail {
+      flex-basis: calc(33.33% - 20px);
+    }
+  }
+  
+  /* Estilos para pantallas extra grandes */
+  @media only screen and (min-width: 1200px) {
+    .container {
+      max-width: 1400px;
+    }
+  
+    .detail {
+      flex-basis: calc(25% - 20px);
+    }
+  }

@@ -1,0 +1,104 @@
+.cardsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+}
+.containt {
+    display: grid;
+    padding: 10px;
+    justify-content: center;
+    margin: 10px;
+    justify-content: space-around;
+    flex-direction: row;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+.botonesPaginado {
+    display: flex;
+    justify-content: center;
+    margin-bottom: .5rem;
+    margin-top: .5rem;
+}
+
+.botonesPaginado button {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: transparent;
+    color: #C5FCEE;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0 0.5rem;
+    box-shadow: 0 0 10px #C5FCEE;
+}
+
+.botonesPaginado button:hover {
+    background-color: #00C9A3;
+    color: #86eb6f;
+}
+
+.botonesPaginado button:disabled {
+    background-color: #777777;
+    color: #CCCCCC;
+    cursor: not-allowed;
+}
+
+.botonesPaginado button:disabled:hover {
+    background-color: #777777;
+    color: #CCCCCC;
+    cursor: not-allowed;
+}
+
+.botonesPaginado button:last-child:disabled {
+    display: none;
+}
+
+/*Estilo */
+.botonesPaginado button.selectedPageButton {
+    background-color: #00C9A3;
+    color: #38e238;
+    box-shadow: none;
+}
+
+.containerCards {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    height: fit-content;
+    align-items: center;
+    border-radius: 5px;
+    margin: 1em;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* .containerCards>* {
+    margin: 0.5rem;
+    flex: 0 0 calc(25% - 1rem);
+} */
+
+@media only screen and (max-width: 768px) {
+    /* .containerCards>* {
+        flex: 0 0 calc(33.3333% - 1rem);
+    } */
+}
+
+@media only screen and (max-width: 576px) {
+    /* .containerCards>* {
+        flex: 0 0 calc(50% - 1rem);
+    } */
+}
+
+@media screen and (max-width: 480px) {
+    .botonesPaginado {
+        /* flex-wrap: wrap; */
+        justify-content: center;
+    }
+
+    .botonesPaginado button {
+        margin: 0.25rem;
+    }
+}
