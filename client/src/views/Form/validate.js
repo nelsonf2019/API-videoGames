@@ -77,7 +77,8 @@ const validate =(form)=>{
                 errors.description = 'The description cannot have gaps at the beginning or at the end.';
             }
         }
+      
     
+        return errors;
 }
-
 export default validate;

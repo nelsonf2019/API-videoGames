@@ -1,8 +1,20 @@
-.lista{
-    list-style: none;
-}
-.conteinerList{
-    flex-direction: column;
+.contianerPaginado{
+    display: flex;
     justify-content: center;
-    align-items: stretch;
+    list-style: none;
+    margin: auto;
+    padding: 0;
+}
+.contianerPaginado button {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid greenyellow;
+    font-size: 15px;
+    border-radius: 7px;
+    box-shadow: 0 0 10px #C5FCEE;
+}
+
+.contianerPaginado button:hover{
+    background-color: rgb(230, 243, 86);
+    cursor: pointer;
 }

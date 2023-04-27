@@ -28,13 +28,13 @@ const Details = ()=>{
                             <p>Description: {detailsGame.description.replace(/<[^>]*>?/g, '')}</p>
                             <hr />
                             <p>Realeased: {detailsGame.released}</p>
-                            <img src={detailsGame.image ? detailsGame.game : detailsGame.background_image } alt="imagen Video Game" width="800px" height="600px" />
+                            <img src={detailsGame.image ? detailsGame.image : detailsGame.background_image } alt="imagen Video Game" width="800px" height="600px" />
                             <hr />
                             <p>Rating: {detailsGame.rating}</p>
                             <hr />
                             <p>Platforms: {detailsGame.plataforms ? (detailsGame.plataforms).join(" | ") : detailsGame.platforms }</p>
                             <hr />
-                            <p>Genres: {!detailsGame.created ? (detailsGame.genres).join(" | ") : detailsGame.genres.map(ele => ele.name).join(" | ")}</p>
+                            <p>Genres: {!detailsGame.created ? (detailsGame.genres) : detailsGame.genres.map(ele => ele.name).join(" | ")}</p>
                             <hr />
                             
                     </div>

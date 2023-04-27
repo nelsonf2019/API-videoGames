@@ -6,11 +6,15 @@ const Card = ({ id, name, image, genre })=>{
         navigate(`/detail/${id}`)
     }
     return(
-        <div    onClick={handleDetialClick} 
-                className={styles.cardsContainer}>
-            <h3>{name}</h3>
-            <h5>{genre}</h5>
-            <img src={image} alt={name} width="200px" height="150px"/>
+        <div onClick={handleDetialClick} 
+                className={styles.cardsContainer}
+                style={{backgroundImage:`url(${image})`}}>
+                
+                <h3>{name}</h3>
+                <h5>{genre}</h5>
+                {/* <img src={image} alt={name} width="200px" height="150px"/> */}
+          
+            
         </div>
     )
 }

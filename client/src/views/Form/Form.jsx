@@ -6,6 +6,7 @@ import  validate from "./validate"
 import styles from "./Form.module.css"
 
 const Form = ()=>{
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const genres = useSelector(state => state.genres);
     const platforms = useSelector(state => state.platforms)
@@ -57,76 +58,84 @@ const Form = ()=>{
         ...form,
         [property]:value
     })
-    // setErrors(
-    //     validate({
-    //         ...form,
-    //         [property]: value
-    //     })
-    // );
+    setErrors(
+        validate({
+            ...form,
+            [property]: value
+        })
+    );
 }
 ///FUNCION QUE GUARDA LAS PLATFORMS EN EL ARRAY DESDE LOS BOTONES
 const handleClickPlatform=(event)=>{
     event.preventDefault()
     if(form.plataforms.includes(event.target.value)){
-        alert(`La plataforma ${event.target.value}  ya existe, intente con otra}`)
+        alert(`La plataforma ${event.target.value}  ya existe, intente con otra`)
     }else{
         setForm({
             ...form,
             plataforms:[...form.plataforms, event.target.value]
         })
-        // setErrors(
-        //     validate({
-        //         ...form,
-        //         plataforms: [...form.plataforms, event.target.value]
-        //     })
-        // );
+        setErrors(
+            validate({
+                ...form,
+                plataforms: [...form.plataforms, event.target.value]
+            })
+        );
          
     }
 }
 ///FUNCION QUE GUARDA LOS GNERES EN EL ARRAY DESDE LOS BOTONES
+const handleDelete=(ele)=>{
+    let elimina = form.plataforms.filter(pltf => pltf !== ele)
+    setForm({
+        ...form,
+        plataforms:elimina
+    })
+}
 const handleClickGenres =(event)=>{
      event.preventDefault()
      
      if(form.genres.includes(event.target.value)){
-        alert(alert(`EL género ${event.target.value} ya existe, intente con otra`))
+        alert(`EL género ${event.target.value} ya existe, intente con otra`)
        
      }else{
         setForm({
             ...form,
             genres:[...form.genres, event.target.value]
          })
-        //  setErrors(
-        //     validate({
-        //         ...form,
-        //         genres:[...form.genres, event.target.value]
-        //     })
-        // );
+         setErrors(
+            validate({
+                ...form,
+                genres:[...form.genres, event.target.value]
+            })
+        );
      }
      
      
 }
+  
 
       // MENAJAMOS CON ESTES ESTADO QUE NO TENGA CAMPOS VACIOS ANTES DE ENVIAR
       const [disabled, setDisabled] = useState(true);
 
-    //   const checkComplit = () => {
-    //     if (
-    //         form.name === "" ||
-    //         form.description === "" ||
-    //         form.plataforms.length === 0 ||
-    //         form.image === "" ||
-    //         form.released === "" ||
-    //         form.rating === "" ||
-    //         form.genres.length === 0
-    //     ) {
-    //         return true;
-    //     }
-    //     return false;
-    // };
+      const checkComplit = () => {
+        if (
+            form.name === "" ||
+            form.description === "" ||
+            form.plataforms.length === 0 ||
+            form.image === "" ||
+            form.released === "" ||
+            form.rating === "" ||
+            form.genres.length === 0
+        ) {
+            return true;
+        }
+        return false;
+    };
 
-    // useEffect(() => {
-    //     setDisabled(checkComplit());
-    // }, [form]);
+    useEffect(() => {
+        setDisabled(checkComplit());
+    }, [form]);
   
     
     const submitHandler=(event)=>{
@@ -160,7 +169,7 @@ const handleClickGenres =(event)=>{
                         name="name"
                         value={form.name}
                     />
-                       {/* <p>{errors.name ? errors.name : ''}</p> */}
+                       <p>{errors.name ? errors.name : ''}</p> 
                     <hr />
                     <input 
                         placeholder="Fecha..." 
@@ -169,7 +178,7 @@ const handleClickGenres =(event)=>{
                         name="released"
                         value={form.released}
                     />
-                       {/* <p>{errors.released ? errors.released : ''}</p> */}
+                       <p>{errors.released ? errors.released : ''}</p>
                     <hr />
                     <input 
                         placeholder="Rating..." 
@@ -178,12 +187,14 @@ const handleClickGenres =(event)=>{
                         name="rating"
                         value={form.rating}
                         />
-                        {/* <p>{errors.rating ? errors.rating : ''}</p> */}
+                        <p>{errors.rating ? errors.rating : ''}</p>
                     <hr />
                     <label htmlFor="">Add platforms</label>
-                        {
+                    <div>
+                    {
                             optionsPlatforms?.map((pltf)=>(
                                 <button 
+                                    className={styles.buttonGenres}
                                     key={pltf.id} 
                                     value={pltf.name}
                                     name="optionsPlatforms"
@@ -191,7 +202,15 @@ const handleClickGenres =(event)=>{
                                 >{pltf.name}</button>
                             ))
                         }
-                         {/* <p>{errors.plataforms ? errors.plataforms : ''}</p> */}
+                    </div>
+                        
+                         <p>{errors.plataforms ? errors.plataforms : ''}</p>
+                         {/* //Caja que sirve agregar los elementos  */}
+                        <div className={styles.containPlatforms}>
+                                {
+                                    form.plataforms.map(ele => <p onClick={()=>handleDelete(ele)} className={styles.platforms}>{ele}</p> )
+                                }
+                        </div>
                     <hr />
                     
                     <input 
@@ -201,6 +220,7 @@ const handleClickGenres =(event)=>{
                         name="image"
                         value={form.image}    
                         />
+                        <p>{errors.image ? errors.image : ''}</p>
                     <hr />
                     <textarea placeholder="Descripción..." 
                          type="text"
@@ -208,13 +228,13 @@ const handleClickGenres =(event)=>{
                          name="description"
                          value={form.description} 
                     />
-                      {/* <p>{errors.description ? errors.description : ''}</p> */}
+                      <p>{errors.description ? errors.description : ''}</p>
                     <hr />
-
-                        {
+                     <div>
+                     {
                             optionsGenres?.map((genre)=>(
                                 <button  
-                                    className={styles.buttonGernes}
+                                    className={styles.buttonGenres}
                                     key={genre.name}
                                     value={genre.name}
                                     name="optionsGenres"
@@ -223,13 +243,12 @@ const handleClickGenres =(event)=>{
                                 >{genre.name}</button>
                             ))
                         }
-                        {/* <p>{errors.genres ? errors.genres : ''}</p> */}
-                    <hr />
 
-                    <button >to Back home</button>
+                     </div>
+                     <p>{errors.genres ? errors.genres : ''}</p>
                     <hr />
-                    <button type="submit"  >CREATE</button> 
-                    {/* disabled={disabled} */}
+                    <button type="submit"  disabled={disabled}  >CREATE</button> 
+                  
             </form>
         </div>
     )

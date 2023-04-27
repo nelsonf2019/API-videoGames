@@ -6,8 +6,11 @@
 html,
 body {
   font-family: 'Zapf-Chancery', cursive;
-  color:rgb(133, 250, 120);
-  background-color: #231a33;  
+  color:rgb(120, 224, 250);
+  background-color: #231a33;
+  background-image: url("https://img.freepik.com/vector-gratis/consola-juegos-letras-letrero-neon-fondo-ladrillo_1262-11854.jpg");
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .App-logo {

@@ -4,7 +4,6 @@ import { getVideogames, getGenres, filterCreated, orderName, filterGenres, filte
 import { Link } from "react-router-dom";
 import Card from "../Card/Card";
 import Paginado from "./paginado"
-import SearchBar from "../SearchBar/SearchBar";
 import styles from "./HomeAndPaginated.module.css"
 import Form from "../Form/Form"
 
@@ -54,6 +53,13 @@ const   Home =()=>{
         setcurrentPage(1);//seteo la página para que comienze desde la 1
         setOrder(`Ordenado ${event.target.value}`)
     }
+    const handlePrevPage=()=>{
+         setcurrentPage(currentPage - 1)             
+    }
+    const handleNextPage =()=>{
+
+        setcurrentPage(currentPage + 1)
+    }
     useEffect(()=>{
         dispatch(getGenres());
     },[])
@@ -66,47 +72,49 @@ const   Home =()=>{
             />
         </>,
         <div className={styles.containt}>   
-           <Link to="/create">Crear Juego</Link>
-            <button onClick={handleClick}>
+            {/* <button onClick={handleClick}>
                 volver a cargar los juegos
-            </button>
-
-            <select onChange={handleFilterGenres}>
-                //filtrado por genres
-            <option>Filtrar por Genero</option>
-            <option value="All">Todos</option>
-                 {
-                    allGenres?.map((genre)=>(
-                        <option key={genre.id} value={genre.name}>{genre.name}</option>
-                    ))
-                 }
-            </select>
-            <div>
-              
-            </div>
-            <select onChange={hanldeOrderRating}>
-                <option>Por orden de Rating</option>
-                <option value="0-5">Ascendente</option>
-                <option value="5-0">Descendente</option>
-            </select>
-            <select onChange={handleOrderByName}>
-                <option value="none">Por orden alfbetico</option>
-                <option value="Asc">Ascendente</option>
-                <option value="Desc">Descendente</option>
-            </select>
-            <select onChange={handleFilterCreated}>
+            </button> */}
+            <div className={styles.filter}>
+                <select onChange={handleFilterGenres}>
+                    //filtrado por genres
+                <option>Filtrar por Genero</option>
                 <option value="All">Todos</option>
-                <option value="created">Creados</option>
-                <option value="api">Existentes</option>
-            </select>
+                    {
+                        allGenres?.map((genre)=>(
+                            <option key={genre.id} value={genre.name}>{genre.name}</option>
+                        ))
+                    }
+                </select>
+                <select onChange={hanldeOrderRating}>
+                    <option>Por orden de Rating</option>
+                    <option value="0-5">Ascendente</option>
+                    <option value="5-0">Descendente</option>
+                </select>
+                <select onChange={handleOrderByName}>
+                    <option value="none">Por orden alfbetico</option>
+                    <option value="Asc">Ascendente</option>
+                    <option value="Desc">Descendente</option>
+                </select>
+                <select onChange={handleFilterCreated}>
+                    <option value="All">Todos</option>
+                    <option value="created">Creados</option>
+                    <option value="api">Existentes</option>
+                </select>
+            </div>
+           
             {/* //les paso las props al componente paginado como variables */}
+            <div>
+              <button className={styles.buttonpPrev} onClick={()=>handlePrevPage()}>Prev</button>  
             <Paginado 
                 videogamesPerPage={videogamesPerPage}
                 allGames={allGames.length}
                 paginado={paginado}
              />
-            <SearchBar />
-            {
+              <button className={styles.buttonNext} onClick={()=>handleNextPage()}> Next </button>  
+            </div>
+           <div className={styles.cardsContainer}>
+           {
               currentVideogame?.map(ele=>{
                     return(
                         <Card
@@ -118,12 +126,19 @@ const   Home =()=>{
                     />
                     )
                 })
-            }
-             <Paginado 
+            }      
+           </div>
+                    
+            <div>
+              <button className={styles.buttonpPrev} onClick={()=>handlePrevPage()}>Prev</button>  
+            <Paginado 
                 videogamesPerPage={videogamesPerPage}
                 allGames={allGames.length}
                 paginado={paginado}
              />
+              <button className={styles.buttonNext} onClick={()=>handleNextPage()}>Next</button>  
+            </div>
+             
         </div>
     )
     //#region fin return componente

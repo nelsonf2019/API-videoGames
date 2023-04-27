@@ -8,9 +8,9 @@ const Paginado =({videogamesPerPage,allGames, paginado})=>{
     }
     return(
 
-        <nav className={styles.botonesPaginado}>
-            <div >
-            
+        <nav>
+            <div  className={styles.contianerPaginado}>
+                
                 {
                     pageNums?.map(num =>(
                         <button key={num} onClick={()=> paginado(num)}>{num}</button>                 

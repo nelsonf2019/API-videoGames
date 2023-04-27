@@ -22,7 +22,6 @@ const SearchBar = ()=>{
     return(
 
         <div>
-         <h1>Soy la searchbar </h1>
          <input 
             type="search"
             placeholder="Searchar by name..."

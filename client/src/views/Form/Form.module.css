@@ -90,14 +90,14 @@
     margin-bottom: .5rem;
 }
 .buttonGenres {
-    width: 50%;
+    width: 10%;
     padding: 10px;
     background-color: transparent;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 10px;
     box-shadow: 0 0 10px #C5FCEE;
     font-weight: bold;
     margin-top: .5rem;
@@ -108,6 +108,12 @@
     color: #fff;
     cursor: not-allowed;
     box-shadow: none;
+}
+.containPlatforms{
+    width: 400px;
+    height: 200px;
+    background-color: #fff;
+    overflow: auto;
 }
 
 .containerForm button[type="submit"]:hover {
